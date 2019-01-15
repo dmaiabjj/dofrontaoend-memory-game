@@ -4,11 +4,34 @@
     align-items: center;
     height: 155px;
     width: 155px;
-    background-color: #F25A70;
     border-radius: 30px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    float: left;
+    margin: 16px 16px 16px 16px;
 }
 
-.memory-card>img {
+.-back {
+    background-color: #F25A70;
+}
+
+
+.memory-card>img,
+.memory-card img.-front {
     width: 100px;
+}
+
+.memory-card img.-front {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.icon-background {
+    position: relative;
+    background-color: #d4d4d4;
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
 }

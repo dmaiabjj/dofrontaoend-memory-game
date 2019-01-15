@@ -1,14 +1,26 @@
 const $root = document.querySelector('#root');
-const $memoryCard = document.createElement('article');
-const iconHTML =
+const $memoryCardGueio = document.createElement('article');
+const iconGueioHTML =
     `<img 
         src="images/icon-collabcode.png" 
         alt="Gueio - Mascote da CollabCode"
     >`;
 
+const $memoryJSCard = document.createElement('article');
+const iconJSHTML = `
+    <article class="memory-card">
+        <div class="icon-background">
+            <img class="-front" src="images/icon-js.png" alt="Gueio - Mascote da collab code">
+        </div>
+    </article>
+`
 
-$memoryCard.classList.add('memory-card');
 
-$root.insertBefore($memoryCard, null);
+$memoryCardGueio.classList.add('memory-card');
+$memoryCardGueio.classList.add('-back');
 
-$memoryCard.insertAdjacentHTML('afterbegin', iconHTML);
+$root.insertBefore($memoryCardGueio, null);
+
+
+$memoryCardGueio.insertAdjacentHTML('afterbegin', iconGueioHTML);
+$memoryCardGueio.insertAdjacentHTML('beforebegin', iconJSHTML);
