@@ -6,6 +6,7 @@
     width: 155px;
     background-color: #F25A70;
     border-radius: 30px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .memory-card>img {
