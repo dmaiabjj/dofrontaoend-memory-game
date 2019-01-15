@@ -1,4 +1,7 @@
 .memory-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 155px;
     width: 155px;
     background-color: #F25A70;
