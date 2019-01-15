@@ -1,0 +1,10 @@
+.memory-card {
+    height: 155px;
+    width: 155px;
+    background-color: #F25A70;
+    border-radius: 30px;
+}
+
+.memory-card>img {
+    width: 100px;
+}
