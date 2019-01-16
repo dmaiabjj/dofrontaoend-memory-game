@@ -1,31 +1,45 @@
 const $root = document.querySelector('#root');
 const $memoryCollabCard = document.createElement('article');
-const iconCollabHTML =
-    `<img 
+const createMemoryCard = ($parent, src, type) => {
+    const $memoryCard = document.createElement('article');
+    const iconHTML =
+        `<img 
         class="icon"
-        src="images/icon-collabcode.png" 
+        src="images/icon-${src}.png" 
         alt="Gueio - Mascote da CollabCode"
     >`;
+    $memoryCard.classList.add('memory-card');
+    $memoryCard.classList.add(`-${type}`);
+    $parent.insertBefore($memoryCard, null);
+    $memoryCard.insertAdjacentHTML('afterbegin', iconHTML);
+}
 
-const $memoryJSCard = document.createElement('article');
-const iconJSHTML = `
-    <img 
-        class="icon" 
-        src="images/icon-js.png" 
-        alt="Ícone de um livro da linguagem Javascript"
-    >`
+const cards = [{
+    type: 'front',
+    src: 'js'
+}, {
+    type: 'back',
+    src: 'collabcode'
+}, {
+    type: 'back',
+    src: 'collabcode'
+}, {
+    type: 'back',
+    src: 'collabcode'
+}, {
+    type: 'back',
+    src: 'collabcode'
+}, {
+    type: 'back',
+    src: 'collabcode'
+}, {
+    type: 'back',
+    src: 'collabcode'
+}, {
+    type: 'back',
+    src: 'collabcode'
+}]
 
-
-$memoryCollabCard.classList.add('memory-card');
-$memoryJSCard.classList.add('memory-card');
-
-$memoryCollabCard.classList.add('-back');
-$memoryJSCard.classList.add('-front');
-
-
-$root.insertBefore($memoryCollabCard, null);
-$root.insertBefore($memoryJSCard, $memoryCollabCard);
-
-
-$memoryCollabCard.insertAdjacentHTML('afterbegin', iconCollabHTML);
-$memoryJSCard.insertAdjacentHTML('afterbegin', iconJSHTML);
+cards.forEach((card) => {
+    createMemoryCard($root, card.src, card.type)
+});
