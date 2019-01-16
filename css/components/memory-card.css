@@ -1,4 +1,5 @@
 .memory-card {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,31 +8,33 @@
     border-radius: 30px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     float: left;
-    margin: 16px 16px 16px 16px;
 }
 
-.-back {
-    background-color: #F25A70;
+.memory-card.-front {
+    background-color: #FFF;
 }
 
-
-.memory-card>img,
-.memory-card img.-front {
-    width: 100px;
-}
-
-.memory-card img.-front {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.memory-card.-back {
+    background-color: #f25a70;
 }
 
 
-.icon-background {
-    position: relative;
-    background-color: #d4d4d4;
-    border-radius: 50%;
+.memory-card.-front::before {
+    content: "";
     width: 95px;
     height: 95px;
+    background-color: #d4d4d4;
+    border-radius: 50%;
+    position: absolute;
+}
+
+
+.memory-card>.icon {
+    width: 100px;
+    height: 100px;
+}
+
+.memory-card.-front>.icon {
+    position: absolute;
+    transform: translateY(-12px);
 }

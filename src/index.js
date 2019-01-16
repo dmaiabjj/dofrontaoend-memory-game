@@ -1,26 +1,31 @@
 const $root = document.querySelector('#root');
-const $memoryCardGueio = document.createElement('article');
-const iconGueioHTML =
+const $memoryCollabCard = document.createElement('article');
+const iconCollabHTML =
     `<img 
+        class="icon"
         src="images/icon-collabcode.png" 
         alt="Gueio - Mascote da CollabCode"
     >`;
 
 const $memoryJSCard = document.createElement('article');
 const iconJSHTML = `
-    <article class="memory-card">
-        <div class="icon-background">
-            <img class="-front" src="images/icon-js.png" alt="Gueio - Mascote da collab code">
-        </div>
-    </article>
-`
+    <img 
+        class="icon" 
+        src="images/icon-js.png" 
+        alt="Ícone de um livro da linguagem Javascript"
+    >`
 
 
-$memoryCardGueio.classList.add('memory-card');
-$memoryCardGueio.classList.add('-back');
+$memoryCollabCard.classList.add('memory-card');
+$memoryJSCard.classList.add('memory-card');
 
-$root.insertBefore($memoryCardGueio, null);
+$memoryCollabCard.classList.add('-back');
+$memoryJSCard.classList.add('-front');
 
 
-$memoryCardGueio.insertAdjacentHTML('afterbegin', iconGueioHTML);
-$memoryCardGueio.insertAdjacentHTML('beforebegin', iconJSHTML);
+$root.insertBefore($memoryCollabCard, null);
+$root.insertBefore($memoryJSCard, $memoryCollabCard);
+
+
+$memoryCollabCard.insertAdjacentHTML('afterbegin', iconCollabHTML);
+$memoryJSCard.insertAdjacentHTML('afterbegin', iconJSHTML);
