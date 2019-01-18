@@ -1,5 +1,6 @@
-const createMemoryCard = ($parent, src, type) => {
+const createMemoryCard = ($parent, src, type, position) => {
     const $memoryCard = document.createElement('article');
+
     const iconHTML =
         `<img 
         class="icon"
@@ -10,4 +11,8 @@ const createMemoryCard = ($parent, src, type) => {
     $memoryCard.classList.add(`-${type}`);
     $parent.insertBefore($memoryCard, null);
     $memoryCard.insertAdjacentHTML('afterbegin', iconHTML);
+
+    $memoryCard.addEventListener('click', function () {
+        alert(`Card ${position} clicked`)
+    })
 }

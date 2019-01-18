@@ -27,6 +27,6 @@ const cards = [{
     src: 'collabcode'
 }]
 
-cards.forEach((card) => {
-    createMemoryCard($wrapCards, card.src, card.type)
+cards.forEach((card, position) => {
+    createMemoryCard($wrapCards, card.src, card.type, position)
 });
