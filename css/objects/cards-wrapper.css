@@ -1,4 +1,4 @@
-.wrap-cards {
+.cards-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -6,6 +6,6 @@
     padding: 10px 0 10px 0;
 }
 
-.wrap-cards>.memory-card {
+.cards-wrapper>.memory-card {
     margin-top: 10px;
 }
