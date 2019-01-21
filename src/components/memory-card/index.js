@@ -12,6 +12,7 @@ const createMemoryCard = (src, type, alt, position) => {
     return $memoryCard;
 }
 
+
 function handleClick(position) {
     console.log(`Card ${position} clicked`);
 }
