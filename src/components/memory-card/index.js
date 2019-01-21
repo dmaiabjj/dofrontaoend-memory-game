@@ -1,16 +1,13 @@
-const createMemoryCard = (src, type, alt, position) => {
-    const $memoryCard =
-        `<article class="memory-card -${type}">
+const createMemoryCard = (src, type, alt, position) =>
+    (`<article class="memory-card -${type}">
             <img 
             class="icon"
             src="images/icon-${src}.png" 
             alt="${alt}"
             onClick="handleClick(${position})"
             >
-        </article>`;
+        </article>`);
 
-    return $memoryCard;
-}
 
 
 function handleClick(position) {
