@@ -3,25 +3,25 @@ const cards = [{
     src: 'js',
     alt: 'JS - Livro de Javascript'
 }, {
-    type: 'back',
-    src: 'collabcode',
-    alt: 'Gueio - Mascote da CollabCode'
+    type: 'front',
+    src: 'js',
+    alt: 'JS - Livro de Javascript'
 }, {
-    type: 'back',
-    src: 'collabcode',
-    alt: 'Gueio - Mascote da CollabCode'
+    type: 'front',
+    src: 'c',
+    alt: 'C - Livro de C'
 }, {
-    type: 'back',
-    src: 'collabcode',
-    alt: 'Gueio - Mascote da CollabCode'
+    type: 'front',
+    src: 'c',
+    alt: 'C - Livro de C'
 }, {
-    type: 'back',
-    src: 'collabcode',
-    alt: 'Gueio - Mascote da CollabCode'
+    type: 'front',
+    src: 'bug',
+    alt: 'Inseto dentro da janela do browser'
 }, {
-    type: 'back',
-    src: 'collabcode',
-    alt: 'Gueio - Mascote da CollabCode'
+    type: 'front',
+    src: 'bug',
+    alt: 'Inseto dentro da janela do browser'
 }, {
     type: 'back',
     src: 'collabcode',
