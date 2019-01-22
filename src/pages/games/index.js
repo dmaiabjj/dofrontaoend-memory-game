@@ -1,33 +1,41 @@
 const cards = [{
-    type: 'front',
+    id: 1,
+    className: '-front',
     src: 'js',
     alt: 'JS - Livro de Javascript'
 }, {
-    type: 'front',
+    id: 2,
+    className: '-front',
     src: 'js',
     alt: 'JS - Livro de Javascript'
 }, {
-    type: 'front',
+    id: 3,
+    className: '-front',
     src: 'c',
     alt: 'C - Livro de C'
 }, {
-    type: 'front',
+    id: 4,
+    className: '-front',
     src: 'c',
     alt: 'C - Livro de C'
 }, {
-    type: 'front',
+    id: 5,
+    className: '-front',
     src: 'bug',
     alt: 'Inseto dentro da janela do browser'
 }, {
-    type: 'front',
+    id: 6,
+    className: '-front',
     src: 'bug',
     alt: 'Inseto dentro da janela do browser'
 }, {
-    type: 'back',
+    id: 7,
+    className: '-back',
     src: 'collabcode',
     alt: 'Gueio - Mascote da CollabCode'
 }, {
-    type: 'back',
+    id: 8,
+    className: '-back',
     src: 'collabcode',
     alt: 'Gueio - Mascote da CollabCode'
 }]
@@ -35,8 +43,8 @@ const cards = [{
 const $root = document.querySelector('#root');
 const $cardsWrapper = createCardsWrapper()
 
-cards.forEach((card, position) => {
-    const $memoryCard = createMemoryCard(card.src, card.type, card.alt, position);
+cards.forEach((card) => {
+    const $memoryCard = createMemoryCard(card);
     $cardsWrapper.insertAdjacentHTML('beforeend', $memoryCard);
 });
 
