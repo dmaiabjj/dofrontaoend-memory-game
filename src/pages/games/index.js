@@ -55,8 +55,9 @@ const cards = [{
     }
 ]
 
+const maxNumberActiveMemoryCards = 2;
 const $root = document.querySelector('#root');
-const $cardsWrapper = createCardsWrapper()
+const $cardsWrapper = createCardsWrapper(maxNumberActiveMemoryCards)
 
 cards.forEach((card) => {
     const $memoryCard = createMemoryCard(card);
