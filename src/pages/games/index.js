@@ -55,9 +55,20 @@ const cards = [{
     }
 ]
 
+
+const onHandlePairHit = () => {
+    score += scoreHit;
+    console.log(score)
+}
+
 const maxNumberActiveMemoryCards = 2;
+const scoreHit = 10;
+
+let score = 0;
+
 const $root = document.querySelector('#root');
-const $cardsWrapper = createCardsWrapper(maxNumberActiveMemoryCards)
+const $cardsWrapper = createCardsWrapper(maxNumberActiveMemoryCards, onHandlePairHit)
+
 
 cards.forEach((card) => {
     const $memoryCard = createMemoryCard(card);
