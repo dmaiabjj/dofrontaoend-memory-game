@@ -16,8 +16,20 @@ injectCSS(`
     }
 `);
 
+const getCards = ($wrapper) => {
+    return Array.prototype.slice.call($wrapper.querySelectorAll(".memory-card.-active[data-hit=false]"));
+}
+
+const avoidClicks = ($element) => {
+    $element.classList.add('avoid-clicks');
+}
+
+const allowClicks = ($element) => {
+    $element.classList.remove('avoid-clicks');
+}
+
 const getCardValues = ($wrapper) => {
-    return Array.prototype.slice.call($wrapper.querySelectorAll(".memory-card.-active[data-hit=false]")).map(($card) => {
+    return getCards($wrapper).map(($card) => {
         return $card.dataset.card
     });
 }
@@ -29,8 +41,8 @@ const checkHit = (values) => {
 }
 
 const hitPair = ($cardsWrapper, onHandlePairHit) => {
-    $cardsWrapper.classList.remove('avoid-clicks');
-    $cardsWrapper.querySelectorAll(".memory-card.-active").forEach(($card) => {
+    allowClicks($cardsWrapper);
+    getCards($cardsWrapper).forEach(($card) => {
         $card.dataset.hit = true;
     });
     onHandlePairHit();
@@ -38,20 +50,19 @@ const hitPair = ($cardsWrapper, onHandlePairHit) => {
 
 const missedPair = ($cardsWrapper) => {
     setTimeout(() => {
-        $cardsWrapper.querySelectorAll(".memory-card.-active[data-hit=false]").forEach(($card) => {
+        getCards($cardsWrapper).forEach(($card) => {
             $card.classList.remove("-active");
         });
-        $cardsWrapper.classList.remove('avoid-clicks');
+        allowClicks($cardsWrapper);
     }, 1500);
 }
 
-const addPairControl = ($cardsWrapper, maxNumberActiveMemoryCards, onHandlePairHit) => {
+const addPairCardsControl = ($cardsWrapper, maxNumberActiveMemoryCards, onHandlePairHit) => {
     $cardsWrapper.addEventListener('click', () => {
-        const activeMemoryCards = $cardsWrapper.querySelectorAll(".memory-card.-active[data-hit=false]").length;
+        const activeMemoryCards = getCards($cardsWrapper).length;
         if (activeMemoryCards === maxNumberActiveMemoryCards) {
-            $cardsWrapper.classList.add('avoid-clicks');
-            const values = getCardValues($cardsWrapper);
-            const hit = checkHit(values)
+            avoidClicks($cardsWrapper);
+            const hit = checkHit(getCardValues($cardsWrapper));
 
             if (!hit)
                 missedPair($cardsWrapper);
@@ -66,6 +77,6 @@ const addPairControl = ($cardsWrapper, maxNumberActiveMemoryCards, onHandlePairH
 const createCardsWrapper = (maxNumberActiveMemoryCards, onHandlePairHit) => {
     const $cardsWrapper = document.createElement('section');
     $cardsWrapper.classList.add('cards-wrapper');
-    addPairControl($cardsWrapper, maxNumberActiveMemoryCards, onHandlePairHit);
+    addPairCardsControl($cardsWrapper, maxNumberActiveMemoryCards, onHandlePairHit);
     return $cardsWrapper;
 }
