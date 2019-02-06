@@ -58,7 +58,7 @@ const cards = [{
 
 const onHandlePairHit = () => {
     score += scoreHit;
-    console.log(score)
+    console.log(`Your score is ${score}`);
 }
 
 const maxNumberActiveMemoryCards = 2;
