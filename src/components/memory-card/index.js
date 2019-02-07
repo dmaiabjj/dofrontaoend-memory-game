@@ -1,4 +1,5 @@
-injectCSS(`
+const memoryCard = (function () {
+    injectCSS(`
 
     .memory-card {
         display: flex;
@@ -57,17 +58,14 @@ injectCSS(`
 `);
 
 
-const handleClick = ($element) => {
-    $element.classList.toggle("-active");
-}
-
-const createMemoryCard = ({
-    id,
-    className,
-    src,
-    alt
-}) => `
-        <article class="memory-card" data-card="${src}" data-hit=false onClick="handleClick(this)">
+    return {
+        create: ({
+            id,
+            className,
+            src,
+            alt
+        }) => `
+        <article class="memory-card" data-card="${src}" data-hit=false onClick="memoryCard.handleClick(this)">
             <img 
                 class="card ${className}"
                 src="images/icon-${src}.png" 
@@ -79,4 +77,9 @@ const createMemoryCard = ({
                 alt="Gueio Mascote da Collab"
             >
         </article>
-`;
+        `,
+        handleClick: ($element) => {
+            $element.classList.add("-active");
+        }
+    };
+})();
