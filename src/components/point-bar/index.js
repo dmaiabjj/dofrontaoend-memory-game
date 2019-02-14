@@ -17,15 +17,21 @@ const pointBar = (function () {
 
     const module = {};
 
+
     module.create = () => {
         return `
             <header class="point-bar">
-                <span class="point">0</span>
+                <span class="point">Your score is : 0</span>
             </header>
         `;
     }
 
+    module.update = (point) => {
+        document.querySelector(".point-bar > .point").textContent = `Your score is : ${point}`;
+    }
+
     return {
-        create: module.create
+        create: module.create,
+        update: module.update
     }
 })();

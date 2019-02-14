@@ -1,4 +1,4 @@
-(function () {
+const gameManager = (function () {
     const cards = [{
             id: 1,
             className: '-front',
@@ -59,7 +59,7 @@
 
     const onHandlePairHit = () => {
         store.score += store.config.scoreHit;
-        console.log(`Your score is ${store.score}`);
+        pointBar.update(store.score);
     }
 
 
