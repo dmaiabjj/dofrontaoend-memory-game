@@ -20,7 +20,7 @@ const pointBar = (function () {
     module.create = () => {
         return `
             <header class="point-bar">
-                <span class="point">AAAAA</span>
+                <span class="point">0</span>
             </header>
         `;
     }

@@ -1,6 +1,7 @@
 const cardWrapper = (function () {
     injectCSS(`
     .cards-wrapper {
+        position:relative;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;

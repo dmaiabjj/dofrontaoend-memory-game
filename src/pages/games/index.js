@@ -64,8 +64,9 @@
 
 
     const $root = document.querySelector('#root');
-    const $cardsWrapper = cardWrapper.create(onHandlePairHit)
-    const $pointBar = pointBar.create()
+    const $cardsWrapper = cardWrapper.create(onHandlePairHit);
+    const $pointBar = pointBar.create();
+    const $buttonAction = buttonAction.create()
 
 
     cards.forEach((card) => {
@@ -76,4 +77,5 @@
 
     $root.insertAdjacentHTML('afterbegin', $pointBar);
     $root.insertAdjacentElement('beforeend', $cardsWrapper);
+    $root.insertAdjacentHTML('beforeend', $buttonAction);
 })();
