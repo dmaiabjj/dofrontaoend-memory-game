@@ -16,29 +16,36 @@ const cardWrapper = (function () {
         pointer-events: none;
     }
 
-    .overlay-wrapper {
+    .cards-wrapper > .overlay-wrapper {
         position:absolute;
         width: 100vw;
         height: 100vh;
         background-color: #000;
         opacity: 0.8;
     }
+
+    .cards-wrapper > .overlay-wrapper.hide {
+        display:none;
+    }
 `);
 
-    const getCards = ($wrapper) => {
-        return Array.prototype.slice.call($wrapper.querySelectorAll(".memory-card.-active[data-hit=false]"));
+    const $cardsWrapper = document.createElement('section');
+    const $overlayWrapper = document.createElement('div');
+
+    const getCards = () => {
+        return Array.prototype.slice.call($cardsWrapper.querySelectorAll(".memory-card.-active[data-hit=false]"));
     }
 
-    const avoidClicks = ($element) => {
-        $element.classList.add('avoid-clicks');
+    const avoidClicks = () => {
+        $cardsWrapper.classList.add('avoid-clicks');
     }
 
-    const allowClicks = ($element) => {
-        $element.classList.remove('avoid-clicks');
+    const allowClicks = () => {
+        $cardsWrapper.classList.remove('avoid-clicks');
     }
 
-    const getCardValues = ($wrapper) => {
-        return getCards($wrapper).map(($card) => {
+    const getCardValues = () => {
+        return getCards().map(($card) => {
             return $card.dataset.card
         });
     }
@@ -49,52 +56,55 @@ const cardWrapper = (function () {
         });
     }
 
-    const hitPair = ($cardsWrapper, onHandlePairHit) => {
-        allowClicks($cardsWrapper);
-        getCards($cardsWrapper).forEach(($card) => {
+    const hitPair = (onHandlePairHit) => {
+        allowClicks();
+        getCards().forEach(($card) => {
             $card.dataset.hit = true;
         });
         onHandlePairHit();
     }
 
-    const missedPair = ($cardsWrapper) => {
+    const missedPair = () => {
         setTimeout(() => {
-            getCards($cardsWrapper).forEach(($card) => {
+            getCards().forEach(($card) => {
                 $card.classList.remove("-active");
             });
-            allowClicks($cardsWrapper);
+            allowClicks();
         }, 1500);
     }
 
-    const addPairCardsControl = ($cardsWrapper, onHandlePairHit) => {
+    const addPairCardsControl = (onHandlePairHit) => {
         $cardsWrapper.addEventListener('click', () => {
-            const activeMemoryCards = getCards($cardsWrapper).length;
+            const activeMemoryCards = getCards().length;
             if (activeMemoryCards === store.config.maxNumberActiveMemoryCards) {
-                avoidClicks($cardsWrapper);
-                const hit = checkHit(getCardValues($cardsWrapper));
+                avoidClicks();
+                const hit = checkHit(getCardValues());
 
                 if (!hit)
-                    missedPair($cardsWrapper);
+                    missedPair();
                 else {
-                    hitPair($cardsWrapper, onHandlePairHit)
+                    hitPair(onHandlePairHit)
                 }
             }
 
         })
     }
 
+    const hideOverlay = () => {
+        $overlayWrapper.classList.add('hide');
+    }
+
     return {
         create: (onHandlePairHit) => {
-            const $cardsWrapper = document.createElement('section');
-            const $overlayWrapper = document.createElement('div');
 
             $overlayWrapper.classList.add('overlay-wrapper');
             $cardsWrapper.classList.add('cards-wrapper');
             $cardsWrapper.insertAdjacentElement('beforeend', $overlayWrapper);
 
-            addPairCardsControl($cardsWrapper, onHandlePairHit);
-            return $cardsWrapper;
-        }
+            addPairCardsControl(onHandlePairHit);
 
+            return $cardsWrapper;
+        },
+        hideOverlay
     }
 })();

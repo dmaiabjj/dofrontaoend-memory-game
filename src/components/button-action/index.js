@@ -18,17 +18,30 @@ const buttonAction = (function () {
         text-transform: uppercase;
         border: 3px solid #fffcee;
     }
+
+    .button-action.hide {
+        display:none;
+    }
     `);
+
+
 
     const module = {};
 
+
+
     module.create = () => {
         return `
-            <button type="button" class="button-action">Start</button> 
+            <button type="button" class="button-action" onClick="gameManager.start()">Start</button> 
         `;
     }
 
+    module.hide = () => {
+        document.querySelector('.button-action').classList.add('hide');
+    }
+
     return {
-        create: module.create
+        create: module.create,
+        hide: module.hide
     }
 })();

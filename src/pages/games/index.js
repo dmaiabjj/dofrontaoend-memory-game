@@ -56,7 +56,6 @@ const gameManager = (function () {
         }
     ]
 
-
     const onHandlePairHit = () => {
         store.score += store.config.scoreHit;
         pointBar.update(store.score);
@@ -78,4 +77,11 @@ const gameManager = (function () {
     $root.insertAdjacentHTML('afterbegin', $pointBar);
     $root.insertAdjacentElement('beforeend', $cardsWrapper);
     $root.insertAdjacentHTML('beforeend', $buttonAction);
+
+    return {
+        start: () => {
+            cardWrapper.hideOverlay();
+            buttonAction.hide();
+        }
+    }
 })();
