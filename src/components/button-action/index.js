@@ -12,7 +12,7 @@ const buttonAction = (function () {
         font-weight:bold;
         width: 80px;
         height: 80px;
-        font-size:19px;
+        font-size:15px;
         box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
         cursor:pointer;
         text-transform: uppercase;

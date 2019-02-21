@@ -6,7 +6,6 @@ const cardWrapper = (function () {
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        padding: 10px 0 10px 0;
     }
 
     .cards-wrapper>.memory-card {
@@ -15,6 +14,14 @@ const cardWrapper = (function () {
 
     .avoid-clicks {
         pointer-events: none;
+    }
+
+    .overlay-wrapper {
+        position:absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.8;
     }
 `);
 
@@ -79,7 +86,12 @@ const cardWrapper = (function () {
     return {
         create: (onHandlePairHit) => {
             const $cardsWrapper = document.createElement('section');
+            const $overlayWrapper = document.createElement('div');
+
+            $overlayWrapper.classList.add('overlay-wrapper');
             $cardsWrapper.classList.add('cards-wrapper');
+            $cardsWrapper.insertAdjacentElement('beforeend', $overlayWrapper);
+
             addPairCardsControl($cardsWrapper, onHandlePairHit);
             return $cardsWrapper;
         }
