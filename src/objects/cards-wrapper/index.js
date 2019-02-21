@@ -22,10 +22,13 @@ const cardWrapper = (function () {
         height: 100vh;
         background-color: #000;
         opacity: 0.8;
+        transition: opacity 1s ease-out, visibility 1s ease-out;
+        visibility: visible;
     }
 
     .cards-wrapper > .overlay-wrapper.hide {
-        display:none;
+        opacity: 0;
+        visibility: hidden;
     }
 `);
 

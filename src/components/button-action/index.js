@@ -17,10 +17,13 @@ const buttonAction = (function () {
         cursor:pointer;
         text-transform: uppercase;
         border: 3px solid #fffcee;
+        visibility: visible;
+        transition: transform 0.5s cubic-bezier(.44,-1.03,.58,1), visibility 0.5s ease-out;
     }
 
     .button-action.hide {
-        display:none;
+        transform : translate(-50%,200%);
+        visibility:hidden;
     }
     `);
 
