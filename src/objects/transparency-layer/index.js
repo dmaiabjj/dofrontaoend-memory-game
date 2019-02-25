@@ -10,7 +10,7 @@ const transparencyLayer = (function () {
             width: 100vh;
         }
 
-        .transparency-layer.hide {
+        .transparency-layer.-hide {
             opacity: 0;
             visibility:hidden;
         }
@@ -26,12 +26,12 @@ const transparencyLayer = (function () {
         `;
     }
 
-    module.toogle = () => {
-        document.querySelector(".transparency-layer").classList.toggle('hide');
+    module.toggle = () => {
+        document.querySelector(".transparency-layer").classList.toggle('-hide');
     }
 
     return {
         render: module.render,
-        toogle: module.toogle
+        toggle: module.toggle
     }
 })();

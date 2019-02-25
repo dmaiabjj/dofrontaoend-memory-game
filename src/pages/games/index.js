@@ -66,7 +66,7 @@ const gameManager = (function () {
     const $cardsWrapper = cardWrapper.create(onHandlePairHit);
     const $pointBar = pointBar.create();
     const $transparencyLayer = transparencyLayer.render();
-    const $buttonAction = buttonAction.create()
+    const $buttonAction = buttonAction.render("Start", "gameManager.start()");
 
 
     cards.forEach((card) => {
@@ -82,8 +82,8 @@ const gameManager = (function () {
 
     return {
         start: () => {
-            transparencyLayer.toogle();
-            buttonAction.hide();
+            transparencyLayer.toggle();
+            buttonAction.toggle();
         }
     }
 })();

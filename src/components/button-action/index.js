@@ -21,7 +21,7 @@ const buttonAction = (function () {
         transition: transform 0.5s cubic-bezier(.44,-1.03,.58,1), visibility 0.5s ease-out;
     }
 
-    .button-action.hide {
+    .button-action.-hide {
         transform : translate(-50%,200%);
     }
     `);
@@ -32,18 +32,18 @@ const buttonAction = (function () {
 
 
 
-    module.create = () => {
+    module.render = (text, onClickHandler) => {
         return `
-            <button type="button" class="button-action" onClick="gameManager.start()">Start</button> 
+            <button type="button" class="button-action" onClick=${onClickHandler}>${text}</button> 
         `;
     }
 
-    module.hide = () => {
-        document.querySelector('.button-action').classList.add('hide');
+    module.toggle = () => {
+        document.querySelector('.button-action').classList.toggle('-hide');
     }
 
     return {
-        create: module.create,
-        hide: module.hide
+        render: module.render,
+        toggle: module.toggle
     }
 })();
