@@ -65,6 +65,7 @@ const gameManager = (function () {
     const $root = document.querySelector('#root');
     const $cardsWrapper = cardWrapper.create(onHandlePairHit);
     const $pointBar = pointBar.create();
+    const $transparencyLayer = transparencyLayer.render();
     const $buttonAction = buttonAction.create()
 
 
@@ -76,11 +77,12 @@ const gameManager = (function () {
 
     $root.insertAdjacentHTML('afterbegin', $pointBar);
     $root.insertAdjacentElement('beforeend', $cardsWrapper);
+    $root.insertAdjacentHTML('beforeend', $transparencyLayer);
     $root.insertAdjacentHTML('beforeend', $buttonAction);
 
     return {
         start: () => {
-            cardWrapper.hideOverlay();
+            transparencyLayer.toogle();
             buttonAction.hide();
         }
     }

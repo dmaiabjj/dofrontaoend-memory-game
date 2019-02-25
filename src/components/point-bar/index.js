@@ -2,7 +2,6 @@ const pointBar = (function () {
     injectCSS(`
     .point-bar {
        background-color: #3a4042;
-       height: 40px;
        text-align:center;
        font-family: "Comfortaa", sans-serif;
     }

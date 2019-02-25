@@ -23,7 +23,6 @@ const buttonAction = (function () {
 
     .button-action.hide {
         transform : translate(-50%,200%);
-        visibility:hidden;
     }
     `);
 
