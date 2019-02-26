@@ -12,17 +12,21 @@ const buttonAction = (function () {
         font-weight:bold;
         width: 80px;
         height: 80px;
+        line-height:80px;
         font-size:15px;
         box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
         cursor:pointer;
         text-transform: uppercase;
         border: 3px solid #fffcee;
         visibility: visible;
-        transition: transform 0.5s cubic-bezier(.44,-1.03,.58,1), visibility 0.5s ease-out;
+        transition: all 300ms linear;
     }
 
     .button-action.-hide {
-        transform : translate(-50%,200%);
+        transform: scale(2.5) translateX(-20%);
+        transform-origin: center;
+        visibility: hidden;
+        
     }
     `);
 
