@@ -11,11 +11,21 @@ const flatButton = (function () {
             height:176px;
             text-transform: uppercase;
         }
+
+        .-login {
+            background-color: #eae6da;
+        }
+
+        .-signup {
+            background-color: #f25a70;
+        }
     `);
 
     const module = {};
 
-    module.render = (text) => `<button class="flat-button">${text}</button>`
+    module.render = (text, color) => {
+        return `<button class="flat-button -${color}">${text}</button>`
+    };
 
     return {
         render: module.render

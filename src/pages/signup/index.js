@@ -1,7 +1,7 @@
 (function () {
     const $root = document.querySelector('#root');
-    const $loginButton = flatButton.render("Login");
-    const $signUpButton = flatButton.render("Sign up");
+    const $loginButton = flatButton.render("Login", "login");
+    const $signUpButton = flatButton.render("Sign up", "signup");
 
 
     $root.insertAdjacentHTML("beforeend", $loginButton);
