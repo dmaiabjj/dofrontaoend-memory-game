@@ -12,11 +12,11 @@ const flatButton = (function () {
             text-transform: uppercase;
         }
 
-        .-login {
+        .flat-button.-login {
             background-color: #eae6da;
         }
 
-        .-signup {
+        .flat-button.-signup {
             background-color: #f25a70;
         }
     `);
