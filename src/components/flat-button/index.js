@@ -15,7 +15,7 @@ const flatButton = (function () {
 
     const module = {};
 
-    module.render = () => `<button class="flat-button">Login</button>`
+    module.render = (text) => `<button class="flat-button">${text}</button>`
 
     return {
         render: module.render
