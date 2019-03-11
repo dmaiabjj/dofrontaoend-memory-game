@@ -1,12 +1,13 @@
 const flatButton = (function () {
     injectCSS(`
         .flat-button {
+            display:inline-block;
             background-color: #eae6da;
             color: #fffcee;
             font-size: 24px;
             font-weight: bold;
             border:none;
-            width:186px;
+            width: 50%;
             height:176px;
             text-transform: uppercase;
         }
